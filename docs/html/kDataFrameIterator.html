@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>kProcessor</title>
+<title>kDataFrame Iterators</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
@@ -84,7 +84,7 @@ $('body').removeClass('no-script');
 </nav>
 
 <main>
-<div data-extension="core" data-hotdoc-in-toplevel="True" data-hotdoc-project="kProcessor" data-hotdoc-ref="index.html" class="page_container" id="page-wrapper">
+<div data-extension="core" data-hotdoc-in-toplevel="True" data-hotdoc-project="kProcessor" data-hotdoc-ref="kDataFrameIterator.html" class="page_container" id="page-wrapper">
 <script src="assets/js/utils.js"></script>
 
 <div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
@@ -95,70 +95,44 @@ $('body').removeClass('no-script');
 <div id="body">
 	<div id="main">
 				    <div id="page-description" data-hotdoc-role="main">
-        <h1 id="kprocessor">kProcessor</h1>
-<h2 id="installation">Installation</h2>
-<h3 id="requirements">Requirements</h3>
-<table>
-<thead>
-<tr>
-<th>Dependency</th>
-<th>Installation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> g++</td>
-<td> <code>sudo apt-get install g++</code>
-</td>
-</tr>
-<tr>
-<td> cmake</td>
-<td> <code>sudo apt-get install cmake</code>
-</td>
-</tr>
-<tr>
-<td> zlip</td>
-<td> <code>sudo apt install zlib1g-dev</code>
-</td>
-</tr>
-<tr>
-<td> bzlip</td>
-<td> <code>sudo apt-get install libghc-bzlib-dev</code>
-</td>
-</tr>
-<tr>
-<td> python3-dev</td>
-<td> <code>sudo apt-get install python3-dev</code>
-</td>
-</tr>
-<tr>
-<td> distutils</td>
-<td> <code>sudo apt-get install python3-distutils</code>
-</td>
-</tr>
-<tr>
-<td> swig</td>
-<td> <code>sudo apt-get install swig</code>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="clone">Clone</h3>
-<pre><code class="language-bash">git clone --recursive --branch development https://github.com/dib-lab/kProcessor.git kProcessor
-cd kProcessor
+        <h1 id="kdataframe-iterators">kDataFrame Iterators</h1>
+<p>kDataFrameIterator class is resposible for iterating over any kDataFrame instance to get pairs of kmer and its count in case of the <code>kDataFrameMAP</code> &amp;&amp; <code>kDataFrameMQF</code>, the count will be replaced with color in the case of <code>coloredKDataFrame</code>.</p>
+<h2 id="iterator-functions">Iterator functions</h2>
+<h3 id="first-position">First position</h3>
+<p>Return a pointer to the first position of a kDataFrame object</p>
+<pre><code class="language-python">
+kDataFrameIterator.begin()
+
 </code></pre>
-<h3 id="build-kprocessorlib">Build kProcessorLib</h3>
-<pre><code class="language-bash">mkdir build
-cd build/
-cmake ..
-make
-cd ..
+<h3 id="last-position">Last position</h3>
+<p>Return a pointer to the last position of a kDataFrame object</p>
+<pre><code class="language-python">
+kDataFrameIterator.end()
+
 </code></pre>
-<h3 id="install-kprocessor-python-package">Install kProcessor Python Package</h3>
-<pre><code class="language-bash">python3 setup.py install
+<h3 id="move-to-next-position">Move to next position</h3>
+<p>Increment the iterator position by one</p>
+<pre><code class="language-python">
+kDataFrameIterator.next()
+
 </code></pre>
-<h3 id="optional-build-wheel-package">Optional (Build wheel package)</h3>
-<pre><code class="language-bash">python3 setup.py bdist_wheel
+<h3 id="get-the-kmer-of-the-current-iterator-position">Get the kmer of the current iterator position</h3>
+<p>Return the kmer at the current iterator position</p>
+<pre><code class="language-python">
+kDataFrameIterator.getKmer()
+
+</code></pre>
+<h3 id="get-the-count-or-color-in-case-of-coloredkdataframe-of-the-current-iterator-position">Get the count (or color in case of <code>coloredKDataFrame</code> ) of the current iterator position</h3>
+<p>Return the kmer at the current iterator position</p>
+<pre><code class="language-python">
+kDataFrameIterator.getKmerCount()
+
+</code></pre>
+<h3 id="set-the-kmer-count-or-color-in-case-of-coloredkdataframe-of-the-current-iterator-position">Set the kmer count (or color in case of <code>coloredKDataFrame</code> ) of the current iterator position</h3>
+<p>Set the kmer count at the current iterator position</p>
+<pre><code class="language-python">
+kDataFrameIterator.setKmerCount(new_count)
+
 </code></pre>
 
     </div>
@@ -167,29 +141,7 @@ cd ..
 
 
 
-		<div id="subpages">
-	<p><b>Subpages:</b></p>
-	<div class="thumb-subpages">
-																																													</div>
-							<p>
-			<a href="introduction.html">kProcessor</a>
-						</p>
-									<p>
-			<a href="kDataFrame.html">kDataFrame</a>
-						</p>
-									<p>
-			<a href="coloredKDataFrame.html">coloredKDataFrame</a>
-						</p>
-									<p>
-			<a href="kDataFrameIterator.html">kDataFrame Iterators</a>
-						</p>
-									<p>
-			<a href="kmerDecoder.html">kmerDecoder</a>
-						</p>
-									<p>
-			<a href="Algorithms.html">Algorithms</a>
-						</p>
-			</div>
+		
 	</div>
 	<div id="search_results">
 		<p>The results of the search are</p>

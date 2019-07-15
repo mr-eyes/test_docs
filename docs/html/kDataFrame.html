@@ -108,6 +108,19 @@ kf = kDataFrameMQF(31)
 kf_size = kf.size()
 
 </code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The maximum <strong>kmer size</strong> can be handled is <code>31</code>
+</li>
+<li>
+<code>kDataFrameMQF</code> is faster than <code>kDataFrameMAP</code> and has lower memory consumption.</li>
+<li>
+<code>kDataFrameMAP</code> is used when processing with <strong>kmer size</strong> &lt; <code>15</code>
+</li>
+<li>kDataFrame set functions could be applied only on <code>kDataFrameMQF</code>
+</li>
+<li>Each of the two subclasses provides the same functions.</li>
+</ul>
 <hr>
 <h3 id="instantiation">Instantiation</h3>
 <p>Create an empty kDataFrame with predefined kmerSize</p>
