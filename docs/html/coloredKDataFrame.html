@@ -100,7 +100,7 @@ $('body').removeClass('no-script');
 <ul>
 <li>
 <code>coloredKDataFrame</code> class inherits all the functions from <code>kDataFrame</code> plus other new functions.</li>
-<li>The <code>coloredKDataFrame</code> class holds the kmers colors instead of their count.</li>
+<li>The <code>coloredKDataFrame</code> class holds the kmers colors instead of their count. so, <code>coloredKDataFrame.count(kmer)</code> will return the color.</li>
 <li>A kmer color is an integer represents the targets which contains that kmer.</li>
 </ul>
 <p>Example:</p>
@@ -109,60 +109,37 @@ $('body').removeClass('no-script');
 <p><code>kmer: ACTGATCGATCGTACGAC</code> has the color <code>2</code>, that means it's found in both <code>transcript_A</code> and <code>transcript_B</code>
 <code>kmer: ATAAGCATTTACAGCAAT</code> has the color <code>1</code>, that means it's found in both <code>transcript_A</code> , <code>transcript_B</code> and <code>transcript_C</code></p>
 <hr>
-<p>colored_kDataFrame.getKmerColor(kmer): returns the color of the kmer
-colorsList()
-colored_kDataFrame.getSamplesIDForColor(color, colorsList): take the colorsList and fill it with all the transcript ids contains that color
-colored_kDataFrame.getSamplesIDForKmer(kmer, colorsList): take the colorsList and fill it with all the transcript ids contains that kmer
-colored_kDataFrame.names_map(): unordered_map contains namesMap information {tr_id:tr_name}
-colored_kDataFrame.inverse_names_map(): unordered_map contains namesMap information {tr_name:tr_id}
-colored_kDataFrame.load(fileNamePrefix): load the coloredkDataFrame from disk and returns coloredkDataFrame object
-colored_kDataFrame.save(fileNamePrefix): save the coloredkDataFrame to disk</p>
+<p>colored_kDataFrame.names_map(): unordered_map contains namesMap information {tr_id:tr_name}
+colored_kDataFrame.inverse_names_map(): unordered_map contains namesMap information {tr_name:tr_id}</p>
 <h2 id="functions">Functions</h2>
 <h3 id="get-kmer-color">Get kmer color</h3>
 <p>returns the color of the kmer</p>
 <pre><code class="language-python">
-colored_kDataFrame.getKmerColor(kmer)
+kmer_color = colored_kDataFrame.getKmerColor(kmer)
 
 </code></pre>
-<h3 id="get-all-targets-ids-contains-a-given-color">Get all targets ID(s) contains a given color</h3>
-<p>subtitle</p>
+<h3 id="get-all-samples-targets-ids-contains-a-given-color">Get all samples (targets) ID(s) contains a given color</h3>
+<p>return a list of samples IDs associated with this color</p>
 <pre><code class="language-python">
-# Create an empty colors list
-
-colors_list = kp.colorsList()
-
-# Pass the colors list to be filled
-colored_kDataFrame.getSamplesIDForColor(color, colorsList)
+samples_list = colored_kDataFrame.getSamplesIDForColor(color)
 
 </code></pre>
-<h3 id="title">title</h3>
-<p>subtitle</p>
+<h3 id="get-all-colors-of-a-given-kmer">Get all colors of a given kmer</h3>
+<p>return a list of colors associated with this kmer</p>
 <pre><code class="language-python">
-colored_kDataFrame.getSamplesIDForKmer(kmer, colorsList)
+colors_list = colored_kDataFrame.getSamplesIDForKmer(kmer)
 
 </code></pre>
-<h3 id="title1">title</h3>
-<p>subtitle</p>
+<h3 id="get-the-names-map">Get the names map</h3>
+<p>returns a dictionary of names map</p>
 <pre><code class="language-python">
-
+colored_kDataFrame.names_map()
 
 </code></pre>
-<h3 id="title2">title</h3>
-<p>subtitle</p>
+<h3 id="get-the-inversed-names-map">Get the inversed names map</h3>
+<p>returns an inversed dictionary of names map</p>
 <pre><code class="language-python">
-
-
-</code></pre>
-<h3 id="title3">title</h3>
-<p>subtitle</p>
-<pre><code class="language-python">
-
-
-</code></pre>
-<h3 id="title4">title</h3>
-<p>subtitle</p>
-<pre><code class="language-python">
-
+colored_kDataFrame.inversed_names_map()
 
 </code></pre>
 
