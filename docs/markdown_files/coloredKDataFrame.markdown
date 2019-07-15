@@ -16,8 +16,6 @@ Example:
 
 ---
 
-colored_kDataFrame.names_map(): unordered_map contains namesMap information {tr_id:tr_name}
-colored_kDataFrame.inverse_names_map(): unordered_map contains namesMap information {tr_name:tr_id}
 
 ## Functions
 
